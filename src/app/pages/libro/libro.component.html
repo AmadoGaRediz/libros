@@ -1,0 +1,80 @@
+<div style="margin: 20px;">
+
+    <h1>Catalogo de libros</h1>
+
+    <h4>Alta de Libros</h4>
+
+    <div class="col-sm-4">
+        <p>
+            <label>Titulo:</label>
+            <input type="text" class="form-control"  [(ngModel)]="libro.titulo" />
+        </p>
+
+        <p>
+            <label>Autor:</label>
+            <input type="text" class="form-control" [(ngModel)]="libro.autor" />
+        </p>
+
+        <p>
+            <label>Editorial:</label>
+            <input type="text" class="form-control" [(ngModel)]="libro.editorial" />
+        </p>
+
+        <p>
+            <label>Año de Publicacion:</label>
+            <input type="text" class="form-control"  [(ngModel)]="libro.anioPublicacion" />
+        </p>
+
+
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="this.insertarLibro()">Insertar</button>
+                </td>
+
+
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="this.updateLibro()">Modificar</button>
+                </td>
+
+
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="this.deleteLibro()">Eliminar</button>
+                </td>
+
+            </tr>
+            
+
+        </table>
+    </div>
+
+    <hr/>
+    <p></p>
+    <h4>Listado de Libros</h4>
+
+    <table class="table">
+        <thead>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Año de Publicacion</th>
+            <th>Seleccionar</th>
+        </thead>
+
+        <tbody>
+            @for(libro of libros; track libro.id){
+                <tr>
+                    <td>{{libro.titulo}}</td>
+                    <td>{{libro.autor}}</td>
+                    <td>{{libro.editorial}}</td>
+                    <td>{{libro.anioPublicacion}}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="selectLibro(libro)">Seleccionar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    
+</div>
